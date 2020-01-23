@@ -421,6 +421,7 @@ public class TelephonyProvider extends ContentProvider
         s_urlMatcher.addURI("telephony", "carriers/preferapnset", URL_PREFERAPNSET);
 
         s_urlMatcher.addURI("telephony", "siminfo", URL_SIMINFO);
+        s_urlMatcher.addURI("telephony", "siminfo/-1", URL_SIMINFO_USING_SUBID);
         s_urlMatcher.addURI("telephony", "siminfo/#", URL_SIMINFO_USING_SUBID);
 
         s_urlMatcher.addURI("telephony", "carriers/subId/*", URL_TELEPHONY_USING_SUBID);

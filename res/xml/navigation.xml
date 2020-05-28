@@ -68,7 +68,7 @@
         <com.aicp.gear.preference.SystemSettingSwitchPreference
             android:key="home_wake_screen"
             android:title="@string/hardware_keys_wake_keys_home_title"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.aicp.gear.preference.SystemSettingSwitchPreference
             android:key="app_switch_wake_screen"

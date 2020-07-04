@@ -22,45 +22,91 @@
     android:key="navigation_gestures"
     android:title="@string/use_bottom_gesture_title">
 
-<!--
-    <com.aicp.gear.preference.SeekBarPreferenceCham
-        android:key="gesture_swipe_length"
-        android:title="@string/gesture_swipe_length_title"
-        android:summary="@string/gesture_swipe_length_summary"
-        android:persistent="false"
-        android:defaultValue="@*android:integer/config_navgestureswipeminlength"
-        aicpextras:unitsRight="@string/unit_px" />
+    <com.aicp.gear.preference.SystemSettingSwitchPreference
+        android:key="back_swipe_extended"
+        android:title="@string/back_swipe_extended_title"
+        android:summary="@string/back_swipe_extended_summary"
+        android:defaultValue="false" />
 
-    <com.aicp.gear.preference.SeekBarPreferenceCham
-        android:key="gesture_swipe_start"
-        android:title="@string/gesture_swipe_start_title"
-        android:summary="@string/gesture_swipe_start_summary"
-        android:max="50"
-        android:min="20"
-        android:persistent="false"
-        android:defaultValue="@*android:integer/config_navgestureswipestart"
-        aicpextras:unitsRight="@string/unit_px" />
+    <com.aicp.gear.preference.SystemSettingListPreference
+        android:key="long_back_swipe_timeout"
+        android:title="@string/long_back_swipe_timeout_title"
+        android:entries="@array/long_back_swipe_timeout_entries"
+        android:entryValues="@array/long_back_swipe_timeout_values"
+        android:defaultValue="2000" />
+    <com.aicp.gear.preference.SystemSettingListPreference
+        android:key="left_long_back_swipe_action"
+        android:title="@string/left_swipe_actions_title"
+        android:entries="@array/long_swipe_actions_entries"
+        android:entryValues="@array/long_swipe_actions_values"
+        android:defaultValue="0" />
+    <Preference
+        android:key="left_swipe_app_action"
+        android:title="@string/left_swipe_app_action_title"
+        android:summary="@string/long_swipe_app_select_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.statusbar.phone.LeftBackSwipeCustomApp" />
+    </Preference>
+    <com.aicp.gear.preference.SystemSettingListPreference
+        android:key="right_long_back_swipe_action"
+        android:title="@string/right_swipe_actions_title"
+        android:entries="@array/long_swipe_actions_entries"
+        android:entryValues="@array/long_swipe_actions_values"
+        android:defaultValue="0" />
+    <Preference
+        android:key="right_swipe_app_action"
+        android:title="@string/right_swipe_app_action_title"
+        android:summary="@string/long_swipe_app_select_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.statusbar.phone.RightBackSwipeCustomApp" />
+    </Preference>
 
-    <com.aicp.gear.preference.SeekBarPreferenceCham
-        android:key="gesture_swipe_timeout"
-        android:title="@string/gesture_action_timeout_title"
-        android:summary="@string/gesture_action_timeout_summary"
-        android:max="500"
-        android:min="100"
-        android:defaultValue="@*android:integer/config_navgestureswipetimout"
-        android:persistent="false"
-        aicpextras:unitsRight="@string/unit_msec" />
+    <PreferenceCategory
+        android:key="left_vertical_swipe"
+        android:dependency="back_swipe_extended"
+        android:title="@string/left_vertical_swipe_key_title">
 
-    <com.aicp.gear.preference.SystemSettingIntListPreference
-        android:key="bottom_gesture_navigation_feedback_duration"
-        android:entries="@array/bottom_gestures_feedback_time_labels"
-        android:entryValues="@array/bottom_gestures_feedback_time"
-        android:title="@string/bottom_gestures_feedback_duration_title"
-        android:summary="%s"
-        android:defaultValue="50" />
+        <com.aicp.gear.preference.SystemSettingListPreference
+            android:key="left_vertical_back_swipe_action"
+            android:title="@string/left_vertical_swipe_actions_title"
+            android:entries="@array/long_swipe_actions_entries"
+            android:entryValues="@array/long_swipe_actions_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:key="left_vertical_swipe_app_action"
+            android:title="@string/left_vertical_swipe_app_action_title"
+            android:summary="@string/long_swipe_app_select_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.statusbar.phone.LeftBackVerticalSwipeCustomApp" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="right_vertical_swipe"
+        android:dependency="back_swipe_extended"
+        android:title="@string/right_vertical_swipe_key_title">
+
+        <com.aicp.gear.preference.SystemSettingListPreference
+            android:key="right_vertical_back_swipe_action"
+            android:title="@string/right_vertical_swipe_actions_title"
+            android:entries="@array/long_swipe_actions_entries"
+            android:entryValues="@array/long_swipe_actions_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:key="right_vertical_swipe_app_action"
+            android:title="@string/right_vertical_swipe_app_action_title"
+            android:summary="@string/long_swipe_app_select_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.statusbar.phone.RightBackVerticalSwipeCustomApp" />
+        </Preference>
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference
-        android:title="@string/gesture_settings_info" />
-        -->
-
+        android:title="@string/gesture_nav_tweaks_footer_info" />
 </PreferenceScreen>
